@@ -8,7 +8,10 @@ function createBoxes(amount) {
   const boxes = document.querySelector('#boxes');
   let size = 30;
 
-  for (let i = 0; i < amount; i++) {
+  // очистити контейнер перед створенням нових елементів
+  boxes.innerHTML = '';
+
+  for (let i = 0; i < amount; i+=1) {
     const box = document.createElement('div');
     box.style.backgroundColor = getRandomHexColor();
     box.style.width = `${size}px`;
@@ -21,6 +24,10 @@ function createBoxes(amount) {
 function destroyBoxes() {
   const boxes = document.querySelector('#boxes');
   boxes.innerHTML = '';
+
+  // очистити інпут
+  const input = document.querySelector('input');
+  input.value = '';
 }
 
 const createBtn = document.querySelector('[data-create]');
@@ -32,4 +39,3 @@ createBtn.addEventListener('click', () => {
 });
 
 destroyBtn.addEventListener('click', destroyBoxes);
-
